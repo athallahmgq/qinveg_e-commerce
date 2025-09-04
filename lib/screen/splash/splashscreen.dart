@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qinveg_mobile/preference/color.dart';
 import 'package:qinveg_mobile/screen/onboarding/onboarding.dart';
+import 'package:qinveg_mobile/screen/onboarding/onboarding1.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => const OnBoarding()),
+        MaterialPageRoute(builder: (context) => const OnBoarding1()),
         (route) => false, 
       );
     });

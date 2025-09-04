@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:qinveg_mobile/preference/color.dart';
 import 'package:qinveg_mobile/screen/auth/auth.dart';
+import 'package:qinveg_mobile/screen/onboarding/onboarding.dart';
 
-class OnBoarding extends StatelessWidget {
-  const OnBoarding({super.key});
+class OnBoarding1 extends StatelessWidget {
+  const OnBoarding1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class OnBoarding extends StatelessWidget {
         height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/bg_onboarding.png'),
+            image: AssetImage('assets/images/bg_onboarding1.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -42,7 +43,15 @@ class OnBoarding extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Effortless access for your\ndaily needs.",
+                      "Welcome to VegBox",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: MainColor.black[200],
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      "Fresh Ingredients, Healthy Choices",
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
@@ -56,11 +65,13 @@ class OnBoarding extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Auth()),
+                            MaterialPageRoute(
+                              builder: (context) => OnBoarding(),
+                            ),
                           );
                         },
                         label: Text(
-                          "Get started",
+                          "Next",
                           style: TextStyle(
                             color: MainColor.white,
                             fontSize: 16,
@@ -69,33 +80,6 @@ class OnBoarding extends StatelessWidget {
                         ),
                         icon: Icon(Icons.arrow_forward, color: MainColor.white),
                       ),
-                    ),
-                    SizedBox(height: 20),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Already have account? ",
-                          style: TextStyle(
-                            color: MainColor.black[200],
-                            fontSize: 13,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            // Aksi ke login
-                          },
-                          child: const Text(
-                            "Login here",
-                            style: TextStyle(
-                              color: MainColor.primaryColor,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ],
                     ),
                   ],
                 ),

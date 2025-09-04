@@ -28,7 +28,6 @@ class _FoodItemState extends State<FoodItem> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          
           // === IMAGE + DISCOUNT BADGE ===
           Stack(
             children: [
@@ -41,7 +40,6 @@ class _FoodItemState extends State<FoodItem> {
                     height: 120,
                     width: double.infinity,
                     fit: BoxFit.cover,
-                    
                   ),
                 ),
               ),

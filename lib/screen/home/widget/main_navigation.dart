@@ -17,7 +17,7 @@ class MainNavigation extends StatefulWidget {
 
 class _MainNavigationState extends State<MainNavigation>
     with TickerProviderStateMixin {
-  int _selectedIndex = 2; // Start with home as default
+  int _selectedIndex = 2;
   late AnimationController _animationController;
   late Animation<double> _scaleAnimation;
 
@@ -41,10 +41,10 @@ class _MainNavigationState extends State<MainNavigation>
 
   List<Widget> get _pages => [
     ExploreScreen(),
-    CartScreen(),
+    CartScreen(name: '${widget.name}'),
     HomeScreen(name: '${widget.name}'),
-    CheckoutScreen(),
-    ProfileScreen()
+    CheckoutScreen(name: '${widget.name}'),
+    ProfileScreen(name: '${widget.name}'),
   ];
 
   final List<NavigationItem> _navigationItems = [
@@ -62,69 +62,52 @@ class _MainNavigationState extends State<MainNavigation>
       body: Stack(
         children: [
           _pages[_selectedIndex],
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 24,
-              ), // Adjusted padding
-              child: BottomBar(
-                borderRadius: BorderRadius.circular(
-                  100,
-                ), // Increased border radius
-                barColor: Colors.transparent,
-                body: (context, controller) {
-                  return Container(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 15,
-                      horizontal: 0,
-                    ), // Better padding
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [Colors.white, Colors.grey.shade50],
+
+          if (_selectedIndex != 1 && _selectedIndex != 3)
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                child: BottomBar(
+                  borderRadius: BorderRadius.circular(100),
+                  barColor: Colors.transparent,
+                  body: (context, controller) {
+                    return Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 15,
+                        horizontal: 0,
                       ),
-                      borderRadius: BorderRadius.circular(35),
-                      border: Border.all(
-                        color: Colors.grey.shade200,
-                        width: 1.5,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [Colors.white, Colors.grey.shade50],
+                        ),
+                        borderRadius: BorderRadius.circular(35),
+                        border: Border.all(
+                          color: Colors.grey.shade200,
+                          width: 1.5,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.12),
+                            blurRadius: 25,
+                            offset: Offset(0, 8),
+                          ),
+                        ],
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.12),
-                          blurRadius: 25,
-                          spreadRadius: 0,
-                          offset: Offset(0, 8),
-                        ),
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.08),
-                          blurRadius: 10,
-                          spreadRadius: -2,
-                          offset: Offset(0, 4),
-                        ),
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.04),
-                          blurRadius: 6,
-                          spreadRadius: -4,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment:
-                          MainAxisAlignment.spaceEvenly, // Better spacing
-                      children: _navigationItems
-                          .map((item) => _navItem(item.icon, item.index))
-                          .toList(),
-                    ),
-                  );
-                },
-                child: const SizedBox(height: 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: _navigationItems
+                            .map((item) => _navItem(item.icon, item.index))
+                            .toList(),
+                      ),
+                    );
+                  },
+                  child: const SizedBox(height: 0),
+                ),
               ),
             ),
-          ),
         ],
       ),
     );
