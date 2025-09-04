@@ -5,15 +5,15 @@ Qinveg is a **healthy food mobile application** built with **Flutter**, designed
 ---
 
 ## 📊 Project Progress
-✅ **60% Completed** – Core Screen are in development:  
+✅ **100% Completed** – Core Screen are in development:  
 - Splash & OnBoarding ✔️  
 - Authentication ✔️  
 - HomePage ✔️  
 - Product Detail ✔️  
-- Checkout 🔄 (in progress)  
-- Categories 🔄 (in progress)  
-- Cart 🔄 (in progress)  
-- Profile 🔄 (in progress)
+- Checkout ✔️  
+- Categories ✔️  
+- Cart ✔️  
+- Profile ✔️  
 
 ---
 
